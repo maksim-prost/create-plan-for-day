@@ -40,7 +40,6 @@ class Wath():
             'date_of_approval': self.view_prev_day(),
             'date_of_event': self.view_cur_day(),
         } )
-        # context['folder'] = self.folder
         return context
 
     def save(self, source_path, send_mail):
