@@ -1,0 +1,5 @@
+config_api.py
+__pycache__/
+*.session
+venv/
+education/
