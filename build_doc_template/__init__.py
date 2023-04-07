@@ -191,7 +191,7 @@ class BuildDocTemplate():
             template[1]['lesson_obj_for_plan'] = self.working_out_dict.get(current_day, [])
         self.list_templates_month.extend([(templates[0], templates[1].copy()) for templates in self.list_templates_by_day])
 
-    def save(self):
+    def create_doc(self):
         for title_template, template in self.list_templates_month:
             folder_for_save = join(self.path_for_save, template['folder'], template['date_of_event'])
             os.makedirs(folder_for_save, exist_ok=True)
@@ -204,7 +204,6 @@ class BuildDocTemplate():
             template = {'list_lesson': render_month_lessons}
             title_save = join(self.path_for_save, folder, 'список занятий на месяц.docx')
             run_template(title_template, template, title_save)
-        return
 
 
 def run_template(title_template, render, title_save):

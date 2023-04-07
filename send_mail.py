@@ -5,7 +5,7 @@ from email.utils import formataddr
 from jinja2 import Template
 import mimetypes
 
-def sendered_mails(EMAIL_ADDRESS, EMAIL_PASSWORD, HOST):
+def message_sender(EMAIL_ADDRESS, EMAIL_PASSWORD, HOST):
     def fabricy(title_month, path_to_zip, filename, list_addres):
         text_mail =  f'''
         <p>

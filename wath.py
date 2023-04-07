@@ -42,7 +42,7 @@ class Wath():
         } )
         return context
 
-    def save(self, source_path, send_mail):
+    def save(self, source_path, send_mail, title_month):
         path_to_direct = f'{source_path}/{self.folder}'
         # print(path_to_direct, source_path)
         if  self.path_to_save:
@@ -50,7 +50,7 @@ class Wath():
         if self.email:
             zip_name = shutil.make_archive(path_to_direct, 'zip', path_to_direct)
             # print(zip_name)
-            send_mail('title_month', zip_name, 'dddd.zip', self.email)
+            send_mail(title_month, zip_name, f'{self.folder}.zip', self.email)
 
 
 class ListWath:
@@ -75,4 +75,4 @@ class ListWath:
     
     def save(self, source_path):
         for wath in self.list_wath:
-            wath.save(source_path, self.send_mail)
+            wath.save(source_path, self.send_mail, self.get_title_month())
